@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lightbox2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+<!-- Lightbox2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            accent: '#38BDF8',
+            soft: '#1E293B',
+            gradient: '#b30746'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          },
+          animation: {
+            float: 'float 3s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .image-swap {
+      animation: swap 5s infinite alternate;
+    }
+    @keyframes swap {
+      0% { background-image: url('https://via.placeholder.com/300x150?text=Image+1'); }
+      50% { background-image: url('https://via.placeholder.com/300x150?text=Image+2'); }
+      100% { background-image: url('https://via.placeholder.com/300x150?text=Image+1'); }
+    }
+
+  </style>
+<!-- Blinking style -->
+  <style>
+  @keyframes blink {
+    0%, 50%, 100% {
+      opacity: 1;
+    }
+    25%, 75% {
+      opacity: 0;
+    }
+  }
+
+  .blinking {
+    animation: blink 1s infinite;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body class="bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-inter">
+  <!-- Navigation Bar -->
+<header class="fixed top-0 left-0 w-full bg-primary shadow z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+    <h1 class="text-xl font- mb-2 md:mb-0"><a href="#home" class="hover:text-accent">HOME</a></h1>
+    <nav class="space-y-2 md:space-y-0 md:space-x-6 text-sm font-semibold flex flex-col md:flex-row "><!--exclude relative inside-->
+      <a href="#about" class="hover:text-accent">ABOUT</a>
+
+      <!-- Dropdown Wrapper -->
+      <div class="relative group">
+        <button class="hover:text-accent">POWERED AI PROJECTS</button>
+        <div class="absolute hidden group-hover:flex flex-col bg-white shadow rounded mt-2 min-w-[180px] z-50">
+          <a href="#projects1" class="px-4 py-2 text-gradient hover:bg-accent/10">Text Generator</a>
+          <a href="#projects2" class="px-4 py-2 text-gradient hover:bg-accent/10">Web Application</a>
+          <a href="#projects3" class="px-4 py-2 text-gradient hover:bg-accent/10">API Integration</a>
+          <a href="#projects4" class="px-4 py-2 text-gradient hover:bg-accent/10">Power BI Dashboard</a>
+        </div>
+      </div>
+
+      <a href="#infographics" class="hover:text-accent">MULTI-MEDIA EDITING</a>
+      <a href="#services" class="hover:text-accent">SERVICES OFFERED</a>
+      <a href="#feedback" class="hover:text-accent">FEEDBACK</a>
+    </nav>
+  </div>
+</header>
+
+  </header>
+  <br />
+  <br />
+
+
+  <main class="pt-24">
+
+    <!-- Home Section -->
+<section id="home" class="min-h-screen bg-soft from-slate-100 to-white p-8 flex flex-col items-center justify-center">
+  <div class="max-w-4xl w-full bg-white shadow-lg rounded-2xl p-8 text-center">
+    <!-- Profile Photo -->
+
+    <!-- Auto-Switching Images
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg">
+  <img id="aboutImage" src="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" alt="Profile" class="w-full h-auto rounded-lg shadow-md transition duration-500 opacity-100">
+  <div id="loadingSpinner" class="absolute inset-0 flex items-center justify-center bg-white/70">
+    <svg class="animate-spin h-8 w-8 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 100 16 8 8 0 01-8-8z"></path>
+    </svg>
+  </div>
+</div>
+
+<script>
+  const images = [
+    'https://i.ibb.co/hR3vXGB5/JAN-BW.jpg',
+    'https://i.ibb.co/1GpMqYdz/KEV08358.jpg',
+    'https://i.ibb.co/zWZWBWNR/jan-edited.jpg'
+  ];
+
+  let current = 0;
+  const aboutImage = document.getElementById("aboutImage");
+  const loadingSpinner = document.getElementById("loadingSpinner");
+
+  function preloadAndSwitchImage() {
+    loadingSpinner.style.display = "flex";
+    const nextImage = new Image();
+    nextImage.src = images[current];
+    nextImage.onload = () => {
+      aboutImage.src = images[current];
+      loadingSpinner.style.display = "none";
+    };
+  }
+
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    preloadAndSwitchImage();
+  }, 3000);
+</script> -->
+<!-- Auto-Switching Image with Typing Text -->
+<div class="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg">
+  <!-- Background image -->
+  <img id="aboutImage" src="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" alt="Profile"
+       class="w-full h-full object-cover transition duration-500 rounded-2xl">
+
+  <!-- Typing Text Overlay -->
+  <div class="absolute inset-0 flex items-center justify-center z-20">
+    <div class="text-center text-white text-xl font-semibold drop-shadow-lg bg-black/40 px-4 py-2 rounded">
+      <span id="typingText" class="whitespace-nowrap"></span>
+      <span class="border-r-2 border-white animate-blink ml-1"></span>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="absolute inset-0 flex items-center justify-center bg-white/70 z-30">
+    <svg class="animate-spin h-8 w-8 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 100 16 8 8 0 01-8-8z"></path>
+    </svg>
+  </div>
+</div>
+
+    <script>
+  const images = [
+    'https://i.ibb.co/hR3vXGB5/JAN-BW.jpg',
+    'https://i.ibb.co/1GpMqYdz/KEV08358.jpg',
+    'https://i.ibb.co/zWZWBWNR/jan-edited.jpg'
+  ];
+
+  const texts = [
+    "Your IT Professional",
+    "Your Data Analyst",
+    "Your Multimedia Editor"
+  ];
+
+  let current = 0;
+  const aboutImage = document.getElementById("aboutImage");
+  const loadingSpinner = document.getElementById("loadingSpinner");
+  const typingText = document.getElementById("typingText");
+
+  function typeEffect(text, i = 0) {
+    if (i === 0) typingText.textContent = "";
+    if (i < text.length) {
+      typingText.textContent += text.charAt(i);
+      setTimeout(() => typeEffect(text, i + 1), 80);
+    }
+  }
+
+  function preloadAndSwitchImage() {
+    loadingSpinner.style.display = "flex";
+    const nextImage = new Image();
+    nextImage.src = images[current];
+    nextImage.onload = () => {
+      aboutImage.src = images[current];
+      typeEffect(texts[current]);
+      loadingSpinner.style.display = "none";
+    };
+  }
+
+  // Initial
+  window.onload = () => {
+    typeEffect(texts[current]);
+  };
+
+  // Change image & text every 3 seconds
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    preloadAndSwitchImage();
+  }, 3000);
+</script>
+
+
+    <style>
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+</style>
+
+
+<br />
+
+    <img src="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" alt="Your Name" class="w-40 h-40 mx-auto rounded-full shadow-md object-cover mb-6">
+
+    <!-- Name & Title -->
+    <h1 class="text-4xl font-bold text-gray-800">Jan Helton A. Ecot</h1>
+    <p class="text-gray-500 text-lg mt-1">IT Professional | Data Analyst | Multimedia Editor</p>
+
+    <!-- Contact Info -->
+    <div class="mt-6 space-y-2 text-gray-600">
+      <p><strong>Email:</strong> janheltonyecot@yahoo.com</p>
+      <p><strong>Phone:</strong> +63 935 376 7468</p>
+      <p><strong>Location:</strong> Cagayan de Oro City, Philippines</p>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="mt-6 flex justify-center gap-6 text-gray-600">
+      <a href="https://www.facebook.com/juanhilot27" target="_blank" class="hover:text-blue-600 transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-2.9h2v-2.2c0-2 1.2-3.1 3-3.1.9 0 1.9.2 1.9.2v2.1h-1.1c-1.1 0-1.4.7-1.4 1.4v1.6h2.4l-.4 2.9h-2v7A10 10 0 0 0 22 12z"/>
+        </svg>
+      </a>
+      <a href="https://m.me/juanhilot27" target="_blank" class="hover:text-blue-500 transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 512 512">
+          <path d="M256.064 32C114.616 32 0 135.296 0 266.848c0 73.28 36.192 138.688 96.064 181.792V512l88.416-48.608c23.36 6.592 47.712 10.016 71.584 10.016 141.408 0 256-103.296 256-234.848C512.064 135.296 397.472 32 256.064 32zM268 332l-59.392-63.008L85.92 332l117.056-124.96L268 268l117.056-60.96L268 332z"/>
+        </svg>
+      </a>
+      <a href="mailto:janheltonyecot@yahoo.com" target="_blank" class="hover:text-red-600 transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm8 7L4 6v12h16V6l-8 5z"/>
+        </svg>
+      </a>
+      <a href="https://github.com/juan1627-07" target="_blank" class="hover:text-black transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.2-.9.1-.9.1-.9 1.3.1 2 .9 2 .9 1.2 2 3 1.5 3.7 1.1.1-.9.5-1.5.9-1.8-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 6 18 6.3 18 6.3c.6 1.6.2 2.8.1 3.1.7.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.4-5.3 5.7.5.4.9 1.2.9 2.4v3.6c0 .4.2.7.8.6A12 12 0 0 0 12 .5z"/>
+        </svg>
+      </a>
+      <a href="https://l1nk.dev/5Yf1O" target="_blank" class="hover:text-blue-700 transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.7 0 5-2.2 5-5v-14c0-2.8-2.3-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.2c-1 0-1.7-.8-1.7-1.7 0-1 .8-1.7 1.7-1.7s1.7.8 1.7 1.7c0 1-.7 1.7-1.7 1.7zm13.5 10.2h-3v-4.8c0-1.1-.4-1.8-1.4-1.8-.8 0-1.3.5-1.5 1-.1.3-.1.6-.1 1v4.6h-3v-9h3v1.3c.4-.7 1.2-1.6 2.8-1.6 2.1 0 3.6 1.4 3.6 4.4v4.9z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+        <!-- About -->
+<section id="about" class="bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 py-16 px-6 md:px-10 transition-all duration-300">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+    <!-- Text Content -->
+    <div class="text-gray-800 dark:text-gray-100">
+      <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 leading-tight">
+        Hi, I'm <br />
+        <span class="font-serif text-accent block text-5xl sm:text-6xl mt-2">JAN HELTON</span>
+      </h2>
+      <p class="text-lg sm:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+        I’m passionate about how technology is shaping the world today. From the latest digital tools to social media platforms, I love exploring new ways to use tech to solve problems, improve efficiency, and connect people. With a strong background in computer hardware, software troubleshooting, and with the use of AI, I’m always looking to make life easier and help businesses thrive. <br />
+       <br />
+        Currently, I work as a Weather Watch Staff and IT Technical Support at the Local Government Unit of Cagayan de Oro City. I help monitor weather conditions and provide technical support for systems and equipment used in day-to-day operations.
+      <br /><br />
+       Quote: "I may not be a programmer, but I understand how code works, I solve problems using logic, tools, and resourcefulness".
+      </p>
+    </div>
+
+    <!-- Image -->
+    <div class="relative w-full h-72 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-accent">
+      <img src="https://i.ibb.co/ch8c436B/me.jpg" alt="Jan Helton" class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" />
+    </div>
+
+  </div>
+</section>
+
+
+
+
+    <!-- Projects Section -->
+<section id="projects1" class="min-h-screen bg-soft py-16 px-6">
+  <h1 class="text-3xl font-bold text-center mb-10">Project: <span class="font-serif text-accent block text-5xl sm:text-4xl mt-2">TEXT GENERATOR<br /></span></h1>
+   <p class="text-gray-500 text-lg mt-1">Primary Tools used: Python (Tkinter); SQLite</p><br />
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Project 1 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+
+           <!-- key details -->
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
+    <p class="text-sm md:text-base mb-4">
+    Cagayan de Oro has many areas that highly prone to flooding, putting residents and responders at risk.
+    </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
+  <p class="text-sm md:text-base mb-4">
+    Weather Watch on-duty currently making a manual draft of the street situation (i.e. what areas are not passable, what areas that still passable, etc).
+    So it takes time to disseminate the information into social media.
+  </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
+  <p class="text-sm md:text-base">
+    Developed “Street Situation Text Generator app” to provide quick updates (10x than manual encoding) on flooded streets,
+    disseminate the latest information regarding street situation via Facebook Page post.
+  </p>
+</div>
+                  <!-- key details -->
+
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/zhKDpjXg/image.png');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/8DLqgzBt/street-gen.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/8DLqgzBt/street-gen.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/1JLf2qgR/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/1JLf2qgR/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/HL44xRXR/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/HL44xRXR/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Repeat for Project 2 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+                   <!-- key details -->
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+     <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
+  <p class="text-sm md:text-base mb-4">
+    One of the job description as Weather Watch staff in City Disaster Risk Reduction and Management Department (CDRRMD) Cagayan de Oro is to make a local post
+    regarding on the Weather updates released by the official facebook page of "Mindanao PAGASA Regional Services Division" (MPRSD); one of the regional offices of PAGASA.
+    When MPRSD released weather updates post; Weather Watch on-duty makes draft on it to make it localized. Localized means Staff on-duty shall
+    just fetch those areas that connected to our Downstream Rivers here in Cagayan de Oro City. Those areas are
+    the Municipalities of Bukidnon (Libona, Talakag, Baungon Dahilayan, Manolo).
+  </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
+  <p class="text-sm md:text-base mb-4">
+    The method when weather Watch on-duty extracting those mentioned areas are too slow; time consuming and too obsolete, since MPRSD released other areas too in whole Mindanao.
+  </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
+  <p class="text-sm md:text-base">
+    Developed a “Keyword Extracting app” to provide quick and much less hassle, to fetch the desired areas on the MPRSD weather updates post.
+    Weather Watch on-duty can now disseminate the latest information up to a minute, regarding weather updates in Cagayan de Oro and its Tributaries.
+  </p>
+</div>
+                  <!-- key details -->
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/BH8TXtDZ/image.png');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/SwFMcd4n/2-2.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/SwFMcd4n/2-2.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+         <a href="https://i.ibb.co/b5H7GD8x/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/b5H7GD8x/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/S7r9rgg9/1-2.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/S7r9rgg9/1-2.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/nMDKc2R6/1-3.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/nMDKc2R6/1-3.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+                  <!-- key details -->
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
+    <p class="text-sm md:text-base mb-4">
+        In Cagayan de Oro, earthquakes occasionally occur, and monitoring it is part of the Weather Watch responsibilities. The on-duty personnel are tasked
+    to disseminate earthquake information through the official Facebook Page (CDRRMD - Oro Rescue 911).
+    </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
+  <p class="text-sm md:text-base mb-4">
+      The current method of drafting posts is still manual. Sometimes,
+    the text template is not stored in a proper directory, which can lead to delays and inconsistency.
+  </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
+  <p class="text-sm md:text-base">
+    Develop a simple app that can generate the text template. The app should include all necessary attachments,
+    allowing the user to simply select the intensity felt, the time of occurrence, and the appropriate infographics.
+  </p>
+</div>
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/4gXRkXBX/image.png');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/rfkft6g4/eq.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/rfkft6g4/eq.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/674XV2SQ/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/674XV2SQ/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/HTwWzbYg/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/HTwWzbYg/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+<!-- WEB APPLICATION -->
+      <!-- Project  -->
+<section id="projects2" class="min-h-screen bg-soft py-16 px-6">
+  <h1 class="text-3xl font-bold text-center mb-10">Project: : <span class="font-serif text-accent block text-5xl sm:text-4xl mt-2">WEB APPLICATION</span></h1>
+<p class="text-gray-500 text-lg mt-1">Primary Tools used: Python (Flask); MySQL; HTMLS/CSS; Android ADB <Device></Device></p><br />
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Project 1 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+                  <!-- key details -->
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
+    <p class="text-sm md:text-base mb-4">
+    When disseminating important information, posting on social media is not enough since some areas or barangays
+      in Cagayan de Oro are not always active on social media. This is why it is important to have an alternative: SMS Textblast.
+    </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
+  <p class="text-sm md:text-base mb-4">
+     One of the agencies in Cagayan de Oro has already developed such an application, but there are hiccups.
+    When sending to the appropriate recipients,
+    it takes a while— to receive a bulk SMS to 100 to 150
+    recipients takes too much time. Additionally, the CDRRMD does not have access when there is wrong on the app.
+  </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
+  <p class="text-sm md:text-base">
+    Build a dedicated SMS Textblast via web app as an alternative way of disseminating information. This time, no API is involved—fully customized
+    using an old Android device, with the ability to via ADB protocol. Personnel can now also check the message history and troubleshoot if necessary.
+  </p>
+</div>
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/yFHXy3h4/web-app-2.jpg');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/vxdpbLdh/web-app-5.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/vxdpbLdh/web-app-5.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/tPbhh3dg/web-app-1.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/tPbhh3dg/web-app-1.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/zh8yfvhf/web-app-3.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/zh8yfvhf/web-app-3.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/1GnwBtFd/web-app-4.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/1GnwBtFd/web-app-4.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Repeat for Project 2 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
+    <p class="text-sm md:text-base mb-4">
+    When disseminating important information, posting on social media is not enough since some areas or barangays
+      in Cagayan de Oro are not always active on social media. This is why it is important to have an alternative: SMS Textblast.
+    </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
+  <p class="text-sm md:text-base mb-4">
+     One of the agencies in Cagayan de Oro has already developed such an application, but there are hiccups.
+    When sending to the appropriate recipients,
+    it takes a while— to receive a bulk SMS to 100 to 150
+    recipients takes too much time. Additionally, the CDRRMD does not have access when there is wrong on the app.
+  </p>
+  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
+  <p class="text-sm md:text-base">
+    Build a dedicated SMS Textblast via web app as an alternative way of disseminating information. This time, no API is involved—fully customized
+    using an old Android device, with the ability to via ADB protocol. Personnel can now also check the message history and troubleshoot if necessary.
+  </p>
+</div>
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/B2KWq8m6/web-app-weather1.jpg');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/nqjPXJZy/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/nqjPXJZy/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 3
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          Key details:
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/hR3vXGB5/JAN-BW.jpg');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/hR3vXGB5/JAN-BW.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+      </div>
+    </div> -->
+
+        </div>
+    </div>
+  </div>
+
+<!-- Project: Desktop Application | API Integration | Automation -->
+      <!-- Project  -->
+<section id="projects3" class="min-h-screen bg-soft py-16 px-6">
+  <h1 class="text-3xl font-bold text-center mb-10">Project: : <span class="font-serif text-accent block text-5xl sm:text-4xl mt-2">Desktop Application | API Integration | Automation</span></h1>
+  <p class="text-gray-500 text-lg mt-1">Primary Tools used: Python (Tkinter); MySQL Triggers; SLACK WEBHOOK API; PHILSMS API; MANY CHAT Messenger Chatbot</p><br />
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Project 1 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          Key details:
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/4gSBH6b1/chat-3.jpg');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/j9jHZ6nK/central-hub.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/j9jHZ6nK/central-hub.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/jk7VXpnD/chat-1.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/jk7VXpnD/chat-1.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/SXD4xMjG/chat-2.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/SXD4xMjG/chat-2.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/Zp8SXzZr/chat-4.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/Zp8SXzZr/chat-4.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Repeat for Project 2 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          Key details:
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/xqbJvBS4/API-integration-3.jpg');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/LGQ89Jq/API-integration-1.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/LGQ89Jq/API-integration-1.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/84gLSMS0/Screenshot-20250727-193057.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/84gLSMS0/Screenshot-20250727-193057.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/3H4VZbS/API-integration-2.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/3H4VZbS/API-integration-2.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+    </div>
+          </div>
+
+        <!-- Repeat for Project 2 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          Key details:
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/LzskzPrP/image.png');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/RkMGrycL/API-integration-4.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/RkMGrycL/API-integration-4.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/ym7CBT53/API-integration-5.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/ym7CBT53/API-integration-5.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+    </div>
+          </div>
+    </div>
+
+<!-- POWER BI -->
+      <!-- Project  -->
+<section id="projects4" class="min-h-screen bg-soft py-16 px-6">
+  <h1 class="text-3xl font-bold text-center mb-10">Project: : <span class="font-serif text-accent block text-5xl sm:text-4xl mt-2">POWER BI DASHBOARD</span></h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Project 1 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          Key details:
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/qMbvfZ1M/image.png');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/Hf0RyTLV/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/Hf0RyTLV/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/MxZhjFnL/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/MxZhjFnL/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/Jwkk6ZSM/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/Jwkk6ZSM/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/qMbvfZ1M/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/qMbvfZ1M/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Repeat for Project 2 -->
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          under development...
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/39vG9w5r/image.png');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
+        </a>
+      </div>
+    </div>
+
+        <!-- Project 3
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          Key details:
+      <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/yFHXy3h4/web-app-2.jpg');"></div>
+      <p class="mt-4 font-bold">Click images for preview</p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <a href="https://i.ibb.co/vxdpbLdh/web-app-5.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/vxdpbLdh/web-app-5.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/tPbhh3dg/web-app-1.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/tPbhh3dg/web-app-1.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/zh8yfvhf/web-app-3.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/zh8yfvhf/web-app-3.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+        <a href="https://i.ibb.co/1GnwBtFd/web-app-4.jpg" data-lightbox="project1" data-title="Preview 1">
+          <img src="https://i.ibb.co/1GnwBtFd/web-app-4.jpg" class="rounded-md hover:opacity-80" />
+        </a>
+
+      </div>
+    </div>
+-->
+
+ </section>
+</section>
+
+
+    <!-- Infographics Section -->
+<section id="infographics" class="min-h-screen py-16 px-6">
+  <h2 class="text-3xl font-bold text-center mb-10">
+    <span class="font-serif block text-5xl sm:text-4xl mt-2">MULTI MEDIA EDITING TOOLS</span>
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Adobe Photoshop -->
+    <div class="bg-primary p-6 rounded-xl hover-scale">
+      <div class="w-full h-40 rounded-lg bg-cover bg-center"
+        style="background-image: url('https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-adobe-photoshop/sta-je-adobe-photoshop.jpg');"></div>
+      <p class="mt-4 text-white">Adobe Photoshop (90%)</p>
+      <div class="w-full bg-gray-300 rounded mt-2 overflow-hidden">
+        <div class="h-2 bg-accent" style="width: 0; animation: photoshopBar 2s forwards;"></div>
+      </div>
+    </div>
+
+    <!-- Sony Vegas Pro -->
+    <div class="bg-primary p-6 rounded-xl hover-scale">
+      <div class="w-full h-40 rounded-lg bg-cover bg-center"
+        style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Vegas_Pro_21_logo.svg/1200px-Vegas_Pro_21_logo.svg.png');"></div>
+      <p class="mt-4 text-white">Sony Vegas Pro (90%)</p>
+      <div class="w-full bg-gray-300 rounded mt-2 overflow-hidden">
+        <div class="h-2 bg-accent" style="width: 0; animation: vegasBar 2s forwards;"></div>
+      </div>
+    </div>
+
+    <!-- Adobe Premiere Pro -->
+    <div class="bg-primary p-6 rounded-xl hover-scale">
+      <div class="w-full h-40 rounded-lg bg-cover bg-center"
+        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIYHHwdRgN5BgsSjZKGQ_Ij5zpseo2DXl7OQ&s');"></div>
+      <p class="mt-4 text-white">Adobe Premiere Pro (75%)</p>
+      <div class="w-full bg-gray-300 rounded mt-2 overflow-hidden">
+        <div class="h-2 bg-accent" style="width: 0; animation: premiereBar 2s forwards;"></div>
+      </div>
+    </div>
+
+    <!-- Capcut -->
+    <div class="bg-primary p-6 rounded-xl hover-scale">
+      <div class="w-full h-60 rounded-lg bg-cover bg-center"
+        style="background-image: url('https://i.ibb.co/Y7mFvHk2/cap.jpg');"></div>
+      <p class="mt-4 text-white">Capcut (80%)</p>
+      <div class="w-full bg-gray-300 rounded mt-2 overflow-hidden">
+        <div class="h-2 bg-accent" style="width: 0; animation: capcutBar 2s forwards;"></div>
+      </div>
+    </div>
+
+    <!-- VN -->
+    <div class="bg-primary p-6 rounded-xl hover-scale">
+      <div class="w-full h-40 rounded-lg bg-cover bg-center"
+        style="background-image: url('https://play-lh.googleusercontent.com/0mvy747JRrqlziGtpvii5zKcMgL0AYRjXNRMlBkUbYadBabC1Dg466LsLKFION1vTg');"></div>
+      <p class="mt-4 text-white">VN (95%)</p>
+      <div class="w-full bg-gray-300 rounded mt-2 overflow-hidden">
+        <div class="h-2 bg-accent" style="width: 0; animation: vnBar 2s forwards;"></div>
+      </div>
+    </div>
+
+    <!-- Canva -->
+    <div class="bg-primary p-6 rounded-xl hover-scale">
+      <div class="w-full h-40 rounded-lg bg-cover bg-center"
+        style="background-image: url('https://cdn.prod.website-files.com/638ec3d4fcf5e083b0519cf8/65845505ac08fff6b48fd1c9_Canva_icon_2021.svg');"></div>
+      <p class="mt-4 text-white">Canva (80%)</p>
+      <div class="w-full bg-gray-300 rounded mt-2 overflow-hidden">
+        <div class="h-2 bg-accent" style="width: 0; animation: canvaBar 2s forwards;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Progress Animations -->
+<style>
+  @keyframes photoshopBar { to { width: 90%; } }
+  @keyframes vegasBar { to { width: 90%; } }
+  @keyframes premiereBar { to { width: 75%; } }
+  @keyframes capcutBar { to { width: 80%; } }
+  @keyframes vnBar { to { width: 95%; } }
+  @keyframes canvaBar { to { width: 80%; } }
+</style>
+
+
+       <!-- Services -->
+<!-- Services -->
+<section id="services" class="bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 py-16 px-6 md:px-10 transition-all duration-300">
+  <div class="max-w-6xl mx-auto">
+    <!-- Blinking text -->
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-primary tracking-wide">
+  <span class="block font-serif text-5xl sm:text-4xl mt-2 text-[#b30746] blinking">
+    SERVICES OFFERED
+  </span>
+</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- Service Card -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2"> API Chatbot Integration</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Seamlessly connect your database or Google Sheets to Slack using the Slack API for timely and automated notifications. <br />
+          √Install a Messenger chatbot to automate customer FAQs and provide instant support.
+        </p>
+      </div>
+
+      <!-- Add more services below this block as needed -->
+      <!-- Example -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2">Website Management</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Oversee and update website content and functionality.
+        </p>
+      </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2">Computer and Hardware Troubleshooting Support</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Diagnosing and fixing computer hardware and software issues.
+        </p>
+      </div>
+
+      <!-- Add more services below this block as needed -->
+      <!-- Example -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2">Email Management</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Organize and handle email communication and tasks.
+        </p>
+      </div>
+                  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2">Social Media Management</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Manage all published content (images, video, written). Monitor, listen, and respond to users in a social way while cultivating leads and sales. Analyze key metrics and adjust strategies to meet business goals.
+        </p>
+      </div>
+
+      <!-- Add more services below this block as needed -->
+      <!-- Example -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2">Make dashboard using Power BI or EXCEL Macro</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Analyze large datasets and create visual reports.
+        </p>
+      </div>
+                  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2">Web Scraping</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Extracting key elements from websites.
+        </p>
+      </div>
+
+      <!-- Add more services below this block as needed -->
+      <!-- Example -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-2xl font-semibold text-primary dark:text-accent mb-2">Research, Data Collection, and Data Entry</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          √Gather, analyze, and input data accurately.
+        </p>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="min-h-screen bg-soft py-16 px-6">
+      <h2 class="text-3xl font-bold text-center mb-10"><span class="font-serif text- block text-5xl sm:text-4xl mt-2">CLIENT FEEDBACK</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          <div class="w-full h-40 rounded-lg bg-cover bg-center image-swap"></div>
+          <p class="mt-4">"Jan delivers fast and understands our needs — highly recommended!" <br />- Marlon P. Salutao | CDRRMD Unit Officer</p>
+        </div>
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          <div class="w-full h-40 rounded-lg bg-cover bg-center image-swap"></div>
+          <p class="mt-4">"Great automation solutions, helped speed up our workflows." <br /> - Jerold Bon D. Lago | CDRRMD Programmer/Technical Staff</p>
+        </div>
+        <div class="bg-primary p-6 rounded-xl hover-scale">
+          <div class="w-full h-40 rounded-lg bg-cover bg-center image-swap"></div>
+          <p class="mt-4">"We appreciate his attention to detail and tech creativity." <br />- James Erick L. Uy | CDRRMD 911 Dispatch Team Leader</p>
+        </div>
+      </div>
+
+
+
+    </section>
+  </main>
+
+  <footer class="bg-primary py-6 text-center text-sm">
+    &copy; 2025 All rights reserved.
+  </footer>
+<div class="text-left mt-8">
+  <p class="text-sm text-gray-600 mb-2">Visitor Count:</p>
+  <a href="https://www.hitwebcounter.com" target="_blank">
+    <img src="https://hitwebcounter.com/counter/counter.php?page=9023569&style=0036&nbdigits=5&type=page&initCount=0"
+         title="Free Counter"
+         Alt="web counter"
+         border="0" />
+  </a>
+</div>
+
+</body>
+
+</html>
