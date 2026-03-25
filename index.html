@@ -7,10 +7,10 @@
   <title>Juan's Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lightbox2 CSS -->
+  <!-- Lightbox2 CSS
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
-<!-- Lightbox2 JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>-->
 
   <script>
     tailwind.config = {
@@ -331,35 +331,36 @@
            <!-- key details -->
           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
   <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
-    <p class="text-sm md:text-base mb-4">
-    Cagayan de Oro has many areas that highly prone to flooding, putting residents and responders at risk.
-    </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
-  <p class="text-sm md:text-base mb-4">
-    Weather Watch on-duty currently making a manual draft of the street situation (i.e. what areas are not passable, what areas that still passable, etc).
-    So it takes time to disseminate the information into social media.
-  </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
-  <p class="text-sm md:text-base">
-    Developed “Street Situation Text Generator app” to provide quick updates (10x than manual encoding) on flooded streets,
-    disseminate the latest information regarding street situation via Facebook Page post.
-  </p>
+<p class="text-sm md:text-base mb-3">
+  Automates flood street reporting and speeds up Facebook posting up to 10x.
+</p>
+
+<button onclick="toggleDetails('proj1', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj1" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Flood-prone areas in CDO require fast situational updates.</p>
+  <p><b>Problem:</b> Manual drafting delays dissemination.</p>
+  <p><b>Solution:</b> Built a text generator app for rapid reporting.</p>
+</div>
 </div>
                   <!-- key details -->
 
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/zhKDpjXg/image.png');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/8DLqgzBt/street-gen.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/8DLqgzBt/street-gen.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/1JLf2qgR/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/1JLf2qgR/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/HL44xRXR/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/HL44xRXR/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-      </div>
+<div class="mt-4">
+  <img src="https://i.ibb.co/8DLqgzBt/street-gen.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
+
+<div class="mt-2 grid grid-cols-3 gap-2">
+  <img src="https://i.ibb.co/8DLqgzBt/street-gen.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/1JLf2qgR/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/HL44xRXR/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
     </div>
 
     <!-- Repeat for Project 2 -->
@@ -367,41 +368,36 @@
                    <!-- key details -->
           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
      <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
-  <p class="text-sm md:text-base mb-4">
-    One of the job description as Weather Watch staff in City Disaster Risk Reduction and Management Department (CDRRMD) Cagayan de Oro is to make a local post
-    regarding on the Weather updates released by the official facebook page of "Mindanao PAGASA Regional Services Division" (MPRSD); one of the regional offices of PAGASA.
-    When MPRSD released weather updates post; Weather Watch on-duty makes draft on it to make it localized. Localized means Staff on-duty shall
-    just fetch those areas that connected to our Downstream Rivers here in Cagayan de Oro City. Those areas are
-    the Municipalities of Bukidnon (Libona, Talakag, Baungon Dahilayan, Manolo).
-  </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
-  <p class="text-sm md:text-base mb-4">
-    The method when weather Watch on-duty extracting those mentioned areas are too slow; time consuming and too obsolete, since MPRSD released other areas too in whole Mindanao.
-  </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
-  <p class="text-sm md:text-base">
-    Developed a “Keyword Extracting app” to provide quick and much less hassle, to fetch the desired areas on the MPRSD weather updates post.
-    Weather Watch on-duty can now disseminate the latest information up to a minute, regarding weather updates in Cagayan de Oro and its Tributaries.
-  </p>
+<p class="text-sm md:text-base mb-3">
+  Extracts relevant areas from PAGASA posts instantly for localized weather updates.
+</p>
+
+<button onclick="toggleDetails('proj2', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj2" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Filters Bukidnon upstream areas affecting CDO rivers.</p>
+  <p><b>Problem:</b> Manual extraction is slow and inefficient.</p>
+  <p><b>Solution:</b> Automated keyword-based extraction system.</p>
+</div>
 </div>
                   <!-- key details -->
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/BH8TXtDZ/image.png');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/SwFMcd4n/2-2.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/SwFMcd4n/2-2.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-         <a href="https://i.ibb.co/b5H7GD8x/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/b5H7GD8x/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/S7r9rgg9/1-2.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/S7r9rgg9/1-2.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/nMDKc2R6/1-3.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/nMDKc2R6/1-3.jpg" class="rounded-md hover:opacity-80" />
-        </a>
+<div class="mt-4">
+  <img src="https://i.ibb.co/SwFMcd4n/2-2.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
 
-      </div>
+<div class="mt-2 grid grid-cols-4 gap-2">
+  <img src="https://i.ibb.co/SwFMcd4n/2-2.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/b5H7GD8x/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/S7r9rgg9/1-2.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/nMDKc2R6/1-3.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
     </div>
 
     <!-- Project 3 -->
@@ -409,34 +405,34 @@
                   <!-- key details -->
           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
   <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
-    <p class="text-sm md:text-base mb-4">
-        In Cagayan de Oro, earthquakes occasionally occur, and monitoring it is part of the Weather Watch responsibilities. The on-duty personnel are tasked
-    to disseminate earthquake information through the official Facebook Page (CDRRMD - Oro Rescue 911).
-    </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
-  <p class="text-sm md:text-base mb-4">
-      The current method of drafting posts is still manual. Sometimes,
-    the text template is not stored in a proper directory, which can lead to delays and inconsistency.
-  </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
-  <p class="text-sm md:text-base">
-    Develop a simple app that can generate the text template. The app should include all necessary attachments,
-    allowing the user to simply select the intensity felt, the time of occurrence, and the appropriate infographics.
-  </p>
+<p class="text-sm md:text-base mb-3">
+  Generates structured earthquake reports instantly with selectable inputs.
+</p>
+
+<button onclick="toggleDetails('proj3', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj3" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Supports quick dissemination of earthquake info.</p>
+  <p><b>Problem:</b> Manual templates are inconsistent and slow.</p>
+  <p><b>Solution:</b> Built a generator with preloaded formats and inputs.</p>
+</div>
 </div>
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/4gXRkXBX/image.png');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/rfkft6g4/eq.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/rfkft6g4/eq.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/674XV2SQ/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/674XV2SQ/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/HTwWzbYg/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/HTwWzbYg/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-      </div>
+<div class="mt-4">
+  <img src="https://i.ibb.co/rfkft6g4/eq.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
+
+<div class="mt-2 grid grid-cols-3 gap-2">
+  <img src="https://i.ibb.co/rfkft6g4/eq.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/674XV2SQ/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/HTwWzbYg/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
     </div>
   </div>
 
@@ -452,76 +448,70 @@
                   <!-- key details -->
           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
   <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
-    <p class="text-sm md:text-base mb-4">
-    When disseminating important information, posting on social media is not enough since some areas or barangays
-      in Cagayan de Oro are not always active on social media. This is why it is important to have an alternative: SMS Textblast.
-    </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
-  <p class="text-sm md:text-base mb-4">
-     One of the agencies in Cagayan de Oro has already developed such an application, but there are hiccups.
-    When sending to the appropriate recipients,
-    it takes a while— to receive a bulk SMS to 100 to 150
-    recipients takes too much time. Additionally, the CDRRMD does not have access when there is wrong on the app.
-  </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
-  <p class="text-sm md:text-base">
-    Build a dedicated SMS Textblast via web app as an alternative way of disseminating information. This time, no API is involved—fully customized
-    using an old Android device, with the ability to via ADB protocol. Personnel can now also check the message history and troubleshoot if necessary.
-  </p>
+ <p class="text-sm md:text-base mb-3">
+  Custom SMS textblast system using Android + ADB for faster bulk delivery.
+</p>
+
+<button onclick="toggleDetails('proj4', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj4" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Alternative to slow API-based SMS systems.</p>
+  <p><b>Problem:</b> Bulk SMS sending is slow and unreliable.</p>
+  <p><b>Solution:</b> Built a direct ADB-powered SMS automation system.</p>
+</div>
 </div>
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/yFHXy3h4/web-app-2.jpg');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/vxdpbLdh/web-app-5.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/vxdpbLdh/web-app-5.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/tPbhh3dg/web-app-1.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/tPbhh3dg/web-app-1.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/zh8yfvhf/web-app-3.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/zh8yfvhf/web-app-3.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/1GnwBtFd/web-app-4.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/1GnwBtFd/web-app-4.jpg" class="rounded-md hover:opacity-80" />
-        </a>
+<div class="mt-4">
+  <img src="https://i.ibb.co/vxdpbLdh/web-app-5.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
 
-      </div>
+<div class="mt-2 grid grid-cols-4 gap-2">
+  <img src="https://i.ibb.co/vxdpbLdh/web-app-5.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/tPbhh3dg/web-app-1.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/zh8yfvhf/web-app-3.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/1GnwBtFd/web-app-4.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
     </div>
 
     <!-- Repeat for Project 2 -->
         <div class="bg-primary p-6 rounded-xl hover-scale">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
   <h3 class="text-xl md:text-2xl font-bold mb-2">Key details:</h3>
-    <p class="text-sm md:text-base mb-4">
-    With today's technology, weather forecasting is possible from virtually anywhere in the world. In Cagayan de Oro,
-      CDRRMD has existing partnerships with agencies for monitoring
-      weather-related events. However, this project which is Local Barangay Forecasting serves more as a situational initiative aimed at strengthening local forecasting capabilities.
-    </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Problem:</h3>
-  <p class="text-sm md:text-base mb-4">
-    While not a critical issue, there is a gap in localized weather visuals. Currently, CDRRMD relies mainly on ARGs (Automatic Rain Gauges)
-    and WLMS (Water Level Monitoring Systems), which can only monitor the actual
-    status of rainfall and water levels, and are also limited in coverage—especially in barangays near the river.  </p>
-  <h3 class="text-xl md:text-2xl font-bold mb-2">Solution:</h3>
-  <p class="text-sm md:text-base">
-    A localized system is being developed using a weather forecasting technology with the help of API to provide forecasts specific to each barangay in Cagayan de Oro.
-    Although still in progress, this system aims to enhance situational awareness on the ground. Current development is affected
-    by API limitations and access restrictions, but once resolved, it will greatly improve the city's capacity to deliver hyperlocal weather updates.
-  </p>
+<p class="text-sm md:text-base mb-3">
+  Provides localized weather forecasts per barangay using API integration.
+</p>
+
+<button onclick="toggleDetails('proj5', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj5" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Focused on hyperlocal forecasting for CDO.</p>
+  <p><b>Problem:</b> Lack of localized visual weather data.</p>
+  <p><b>Solution:</b> API-based barangay-level forecasting system.</p>
+</div>
 </div>
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/B2KWq8m6/web-app-weather1.jpg');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/nqjPXJZy/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/nqjPXJZy/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-      </div>
+<div class="mt-4">
+  <img src="https://i.ibb.co/j9jHZ6nK/central-hub.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
+
+<div class="mt-2 grid grid-cols-4 gap-2">
+  <img src="https://i.ibb.co/j9jHZ6nK/central-hub.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/jk7VXpnD/chat-1.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/SXD4xMjG/chat-2.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/Zp8SXzZr/chat-4.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
     </div>
 
     <!-- Project 3
@@ -555,60 +545,96 @@
 
     <!-- Project 1 -->
         <div class="bg-primary p-6 rounded-xl hover-scale">
-          Key details:
+<p class="text-sm md:text-base mb-3">
+  Centralized hub where all essential daily operation tools are accessible in one place.
+</p>
+
+<button onclick="toggleDetails('proj6', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj6" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Serves as a unified dashboard integrating multiple operational tools into a single interface.</p>
+  <p><b>Problem:</b> Daily operations rely on multiple separate apps, causing inefficiency and context switching.</p>
+  <p><b>Solution:</b> Built a centralized hub to streamline workflows and improve accessibility of tools.</p>
+</div>
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/4gSBH6b1/chat-3.jpg');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/j9jHZ6nK/central-hub.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/j9jHZ6nK/central-hub.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/jk7VXpnD/chat-1.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/jk7VXpnD/chat-1.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/SXD4xMjG/chat-2.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/SXD4xMjG/chat-2.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/Zp8SXzZr/chat-4.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/Zp8SXzZr/chat-4.jpg" class="rounded-md hover:opacity-80" />
-        </a>
+<div class="mt-4">
+  <img src="https://i.ibb.co/j9jHZ6nK/central-hub.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
 
-      </div>
+<div class="mt-2 grid grid-cols-4 gap-2">
+  <img src="https://i.ibb.co/j9jHZ6nK/central-hub.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/jk7VXpnD/chat-1.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/SXD4xMjG/chat-2.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/Zp8SXzZr/chat-4.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
     </div>
 
     <!-- Repeat for Project 2 -->
         <div class="bg-primary p-6 rounded-xl hover-scale">
-          Key details:
+<p class="text-sm md:text-base mb-3">
+  Slack bot that sends automated notifications for critical daily operations and incoming possible important 911 runs.
+</p>
+
+<button onclick="toggleDetails('proj7', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj7" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Notifies specific personnel in real-time through Slack channels.</p>
+  <p><b>Problem:</b> Important updates and calls may be missed or delayed when handled manually.</p>
+  <p><b>Solution:</b> Developed a Slack bot that automatically pushes alerts to key individuals.</p>
+</div>
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/xqbJvBS4/API-integration-3.jpg');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/LGQ89Jq/API-integration-1.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/LGQ89Jq/API-integration-1.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/84gLSMS0/Screenshot-20250727-193057.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/84gLSMS0/Screenshot-20250727-193057.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/3H4VZbS/API-integration-2.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/3H4VZbS/API-integration-2.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-    </div>
+<div class="mt-4">
+  <img src="https://i.ibb.co/LGQ89Jq/API-integration-1.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
+
+<div class="mt-2 grid grid-cols-3 gap-2">
+  <img src="https://i.ibb.co/LGQ89Jq/API-integration-1.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/84gLSMS0/Screenshot-20250727-193057.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/3H4VZbS/API-integration-2.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
           </div>
 
         <!-- Repeat for Project 2 -->
         <div class="bg-primary p-6 rounded-xl hover-scale">
-          Key details:
+<p class="text-sm md:text-base mb-3">
+  Automated Facebook Messenger replies for client inquiries using ManyChat chatbot.
+</p>
+
+<button onclick="toggleDetails('proj8', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj8" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Provides instant responses to users asking about available services.</p>
+  <p><b>Problem:</b> Manual replies to repetitive inquiries consume time and delay response.</p>
+  <p><b>Solution:</b> Implemented a chatbot using ManyChat for automated and consistent replies.</p>
+</div>
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/LzskzPrP/image.png');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/RkMGrycL/API-integration-4.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/RkMGrycL/API-integration-4.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/ym7CBT53/API-integration-5.jpg" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/ym7CBT53/API-integration-5.jpg" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-    </div>
+<div class="mt-4">
+  <img src="https://i.ibb.co/RkMGrycL/API-integration-4.jpg"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
+
+<div class="mt-2 grid grid-cols-3 gap-2">
+  <img src="https://i.ibb.co/RkMGrycL/API-integration-4.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/ym7CBT53/API-integration-5.jpg" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/39vG9w5r/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
           </div>
     </div>
 
@@ -620,24 +646,34 @@
 
     <!-- Project 1 -->
         <div class="bg-primary p-6 rounded-xl hover-scale">
-          Key details:
+ <p class="text-sm md:text-base mb-3">
+  Interactive Power BI dashboard for data visualization and decision support.
+</p>
+
+<button onclick="toggleDetails('proj9', this)"
+  class="text-accent text-sm font-semibold hover:underline mb-3">
+  ▶ View Details
+</button>
+
+<div id="proj9" class="hidden text-sm md:text-base space-y-2 bg-white/5 p-3 rounded-lg border border-white/10">
+  <p><b>Key details:</b> Visualizes complex datasets into actionable insights.</p>
+  <p><b>Problem:</b> Raw data is hard to interpret.</p>
+  <p><b>Solution:</b> Built dashboards with clear visual analytics.</p>
+</div>
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/qMbvfZ1M/image.png');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/Hf0RyTLV/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/Hf0RyTLV/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/MxZhjFnL/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/MxZhjFnL/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/Jwkk6ZSM/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/Jwkk6ZSM/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/qMbvfZ1M/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/qMbvfZ1M/image.png" class="rounded-md hover:opacity-80" />
-        </a>
+<div class="mt-4">
+  <img src="https://i.ibb.co/Hf0RyTLV/image.png"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
 
-      </div>
+<div class="mt-2 grid grid-cols-4 gap-2">
+  <img src="https://i.ibb.co/Hf0RyTLV/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/MxZhjFnL/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/Jwkk6ZSM/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+  <img src="https://i.ibb.co/qMbvfZ1M/image.png" onclick="openModal(this.src)" class="w-full h-20 object-cover rounded-md cursor-pointer" />
+</div>
     </div>
 
     <!-- Repeat for Project 2 -->
@@ -645,17 +681,11 @@
           under development...
       <div class="w-full h-40 rounded-lg bg-cover bg-center" style="background-image: url('https://i.ibb.co/39vG9w5r/image.png');"></div>
       <p class="mt-4 font-bold">Click images for preview</p>
-      <div class="mt-2 grid grid-cols-3 gap-2">
-        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-        <a href="https://i.ibb.co/39vG9w5r/image.png" data-lightbox="project1" data-title="Preview 1">
-          <img src="https://i.ibb.co/39vG9w5r/image.png" class="rounded-md hover:opacity-80" />
-        </a>
-      </div>
+<div class="mt-4">
+  <img src="https://i.ibb.co/39vG9w5r/image.png"
+    onclick="openModal(this.src)"
+    class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer" />
+</div>
     </div>
 
         <!-- Project 3
@@ -918,15 +948,56 @@
 <div class="text-left mt-8">
   <p class="text-sm text-gray-600 mb-2">Visitor Count:</p>
   <a href="https://www.hitwebcounter.com" target="_blank">
-    <img src="https://hitwebcounter.com/counter/counter.php?page=9023569&style=0036&nbdigits=5&type=page&initCount=0"
-         title="Free Counter"
-         Alt="web counter"
-         border="0" />
-  </a>
+<img src="https://hitwebcounter.com/counter/counter.php?page=21484815&style=0001&nbdigits=5&type=page&initCount=0" title="Free Tools" Alt="Free Tools"   border="0" /></a>
 </div>
 
+<script>
+function toggleDetails(id, btn) {
+  const el = document.getElementById(id);
+
+  if (el.classList.contains('hidden')) {
+    el.classList.remove('hidden');
+    btn.innerText = "▼ Hide Details";
+  } else {
+    el.classList.add('hidden');
+    btn.innerText = "▶ View Details";
+  }
+}
+</script>
 
 
+<!-- GLOBAL IMAGE MODAL -->
+<div id="imageModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+  <div class="relative max-w-4xl w-full p-4">
+
+    <button onclick="closeModal()"
+      class="absolute top-2 right-4 text-white text-2xl font-bold z-50">
+      ✕
+    </button>
+
+    <img id="modalImage" src=""
+      class="w-full max-h-[80vh] object-contain rounded-lg shadow-lg"
+      onclick="event.stopPropagation()" />
+
+  </div>
+</div>
+
+<script>
+function openModal(src) {
+  const modal = document.getElementById("imageModal");
+  const img = document.getElementById("modalImage");
+
+  img.src = src;
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+}
+</script>
 
 </body>
 
